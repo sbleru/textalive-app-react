@@ -1,5 +1,5 @@
 import { useEffect, useState, useMemo } from "react";
-import { Player, PlayerListener, IPlayerApp } from "textalive-app-api";
+import { Player, PlayerListener, IPlayerApp, ParameterValue } from "textalive-app-api";
 
 import { PlayerControl } from "./PlayerControl";
 
@@ -13,8 +13,8 @@ export const Body = () => {
   const [player, setPlayer] = useState<Player | null>(null);
   const [app, setApp] = useState<IPlayerApp | null>(null);
   const [char, setChar] = useState("");
-  const [fontFamily, setFontFamily] = useState(sansSerif);
-  const [fontSize, setFontSize] = useState(defaultFontSize);
+  const [fontFamily, setFontFamily] = useState<ParameterValue>(sansSerif);
+  const [fontSize, setFontSize] = useState<ParameterValue>(defaultFontSize);
   const [color, setColor] = useState(defaultColor);
   const [darkMode, setDarkMode] = useState(false);
   const [mediaElement, setMediaElement] = useState<HTMLDivElement | null>(null);
@@ -80,7 +80,7 @@ export const Body = () => {
         }
         setApp(app);
       },
-      onAppParameterUpdate: (name: string, value: any) => {
+      onAppParameterUpdate: (name: string, value) => {
         console.log(`[app] parameters.${name} update:`, value);
         if (name === "fontFamily") {
           setFontFamily(value);
@@ -105,7 +105,7 @@ export const Body = () => {
         console.log("player.data.songMap:", p.data.songMap);
         let c = p.video.firstChar;
         while (c && c.next) {
-          c.animate = (now: number, u: any) => {
+          c.animate = (now: number, u) => {
             if (u.startTime <= now && u.endTime > now) {
               setChar(u.text);
             }
@@ -140,6 +140,7 @@ export const Body = () => {
         <div
           className="char"
           style={{
+            // @ts-expect-error TS2322
             fontFamily,
             fontSize: `${fontSize}vh`,
             color,

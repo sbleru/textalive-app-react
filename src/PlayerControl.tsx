@@ -54,6 +54,7 @@ export const PlayerControl: React.FC<PlayerControlProps> = ({
         disabled={disabled || status === "stop"}
       />
       <div className="seekbar">
+        {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
         <PlayerSeekbar player={disabled ? undefined : (player as any)} />
       </div>
     </div>
