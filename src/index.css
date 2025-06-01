@@ -18,8 +18,9 @@ body {
 
 .wrapper .char {
   font-weight: bold;
-  font-family: "Hiragino Kaku Gothic Pro", "游ゴシック体", "Yu Gothic", YuGothic,
-    Meiryo, HelveticaNeue, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family:
+    "Hiragino Kaku Gothic Pro", "游ゴシック体", "Yu Gothic", YuGothic, Meiryo,
+    HelveticaNeue, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .controls {

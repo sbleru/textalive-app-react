@@ -19,7 +19,10 @@ export const Body = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [mediaElement, setMediaElement] = useState<HTMLDivElement | null>(null);
 
-  const div = useMemo(() => <div className="media" ref={setMediaElement} />, []);
+  const div = useMemo(
+    () => <div className="media" ref={setMediaElement} />,
+    [],
+  );
 
   useEffect(() => {
     if (typeof window === "undefined" || !mediaElement) {

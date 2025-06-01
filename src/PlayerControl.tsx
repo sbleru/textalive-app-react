@@ -6,9 +6,12 @@ import { Player, PlayerListener } from "textalive-app-api";
 type PlayerControlProps = {
   disabled: boolean;
   player: Player;
-}
+};
 
-export const PlayerControl: React.FC<PlayerControlProps> = ({ disabled, player }) => {
+export const PlayerControl: React.FC<PlayerControlProps> = ({
+  disabled,
+  player,
+}) => {
   const [status, setStatus] = useState<"play" | "pause" | "stop">("stop");
 
   useEffect(() => {
@@ -23,15 +26,18 @@ export const PlayerControl: React.FC<PlayerControlProps> = ({ disabled, player }
     };
   }, [player]);
 
-  const handlePlay = useCallback(() => player && player.requestPlay(), [
-    player,
-  ]);
-  const handlePause = useCallback(() => player && player.requestPause(), [
-    player,
-  ]);
-  const handleStop = useCallback(() => player && player.requestStop(), [
-    player,
-  ]);
+  const handlePlay = useCallback(
+    () => player && player.requestPlay(),
+    [player],
+  );
+  const handlePause = useCallback(
+    () => player && player.requestPause(),
+    [player],
+  );
+  const handleStop = useCallback(
+    () => player && player.requestStop(),
+    [player],
+  );
 
   return (
     <div className="control">
