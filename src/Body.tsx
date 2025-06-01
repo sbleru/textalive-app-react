@@ -1,5 +1,10 @@
 import { useEffect, useState, useMemo } from "react";
-import { Player, PlayerListener, IPlayerApp, ParameterValue } from "textalive-app-api";
+import {
+  Player,
+  PlayerListener,
+  IPlayerApp,
+  ParameterValue,
+} from "textalive-app-api";
 
 import { PlayerControl } from "./PlayerControl";
 
