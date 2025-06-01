@@ -1,5 +1,5 @@
-import React, { useEffect, useState, createRef, useMemo } from "react";
-import { Player } from "textalive-app-api";
+import { useEffect, useState, useMemo } from "react";
+import { Player, PlayerListener, IPlayerApp } from "textalive-app-api";
 
 import { PlayerControl } from "./PlayerControl";
 
@@ -10,14 +10,14 @@ const sansSerif = `"Hiragino Kaku Gothic Pro", "游ゴシック体", "Yu Gothic"
 const serif = `"Times New Roman", YuMincho, "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif`;
 
 export const Body = () => {
-  const [player, setPlayer] = useState(null);
-  const [app, setApp] = useState(null);
+  const [player, setPlayer] = useState<Player | null>(null);
+  const [app, setApp] = useState<IPlayerApp | null>(null);
   const [char, setChar] = useState("");
   const [fontFamily, setFontFamily] = useState(sansSerif);
   const [fontSize, setFontSize] = useState(defaultFontSize);
   const [color, setColor] = useState(defaultColor);
   const [darkMode, setDarkMode] = useState(false);
-  const [mediaElement, setMediaElement] = useState(null);
+  const [mediaElement, setMediaElement] = useState<HTMLDivElement | null>(null);
 
   const div = useMemo(() => <div className="media" ref={setMediaElement} />, []);
 
@@ -66,7 +66,7 @@ export const Body = () => {
       mediaElement,
     });
 
-    const playerListener = {
+    const playerListener: PlayerListener = {
       onAppReady: (app) => {
         console.log("--- [app] initialized as TextAlive app ---");
         console.log("managed:", app.managed);
@@ -77,7 +77,7 @@ export const Body = () => {
         }
         setApp(app);
       },
-      onAppParameterUpdate: (name, value) => {
+      onAppParameterUpdate: (name: string, value: any) => {
         console.log(`[app] parameters.${name} update:`, value);
         if (name === "fontFamily") {
           setFontFamily(value);
@@ -86,7 +86,7 @@ export const Body = () => {
           setFontSize(value);
         }
         if (name === "color") {
-          const color = value;
+          const color = value as { r: number; g: number; b: number };
           setColor(`rgb(${color.r}, ${color.g}, ${color.b})`);
         }
         if (name === "darkMode") {
@@ -102,7 +102,7 @@ export const Body = () => {
         console.log("player.data.songMap:", p.data.songMap);
         let c = p.video.firstChar;
         while (c && c.next) {
-          c.animate = (now, u) => {
+          c.animate = (now: number, u: any) => {
             if (u.startTime <= now && u.endTime > now) {
               setChar(u.text);
             }
