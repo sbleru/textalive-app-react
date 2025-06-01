@@ -1,7 +1,7 @@
-import React, { useCallback, useState, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Button } from "semantic-ui-react";
-import { PlayerSeekbar } from "textalive-react-api";
 import { Player, PlayerListener } from "textalive-app-api";
+import { PlayerSeekbar } from "textalive-react-api";
 
 type PlayerControlProps = {
   disabled: boolean;
