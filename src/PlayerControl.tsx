@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { Button } from "semantic-ui-react";
 import { Player, PlayerListener } from "textalive-app-api";
 import { PlayerSeekbar } from "textalive-react-api";
+import { Button } from "@/components/ui/button";
 
 type PlayerControlProps = {
   disabled: boolean;
@@ -40,20 +40,24 @@ export const PlayerControl: React.FC<PlayerControlProps> = ({
   );
 
   return (
-    <div className="control">
+    <div className="flex items-center">
       <Button
-        content={status !== "play" ? "再生" : "一時停止"}
         onClick={status !== "play" ? handlePlay : handlePause}
-        size="small"
+        size="sm"
         disabled={disabled}
-      />
+        className="mr-1.5 flex-shrink-0"
+      >
+        {status !== "play" ? "再生" : "一時停止"}
+      </Button>
       <Button
-        content="停止"
         onClick={handleStop}
-        size="small"
+        size="sm"
         disabled={disabled || status === "stop"}
-      />
-      <div className="seekbar">
+        className="mr-0 flex-shrink-0"
+      >
+        停止
+      </Button>
+      <div className="flex-grow px-2.5">
         {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
         <PlayerSeekbar player={disabled ? undefined : (player as any)} />
       </div>

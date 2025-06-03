@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   IPlayerApp,
   ParameterValue,
@@ -23,11 +23,6 @@ export const Body = () => {
   const [color, setColor] = useState(defaultColor);
   const [darkMode, setDarkMode] = useState(false);
   const [mediaElement, setMediaElement] = useState<HTMLDivElement | null>(null);
-
-  const div = useMemo(
-    () => <div className="media" ref={setMediaElement} />,
-    [],
-  );
 
   useEffect(() => {
     if (typeof window === "undefined" || !mediaElement) {
@@ -132,18 +127,18 @@ export const Body = () => {
   return (
     <>
       {player && app && (
-        <div className="controls">
+        <div className="absolute top-2.5 left-2.5 right-2.5 bg-black/20 p-1.5 z-[100]">
           <PlayerControl disabled={app.managed} player={player} />
         </div>
       )}
       <div
-        className="wrapper"
+        className="absolute inset-1.5 flex items-center justify-center z-10"
         style={{
           background: darkMode ? "#333" : "#fff",
         }}
       >
         <div
-          className="char"
+          className="font-bold"
           style={{
             // @ts-expect-error TS2322
             fontFamily,
@@ -154,7 +149,10 @@ export const Body = () => {
           {char}
         </div>
       </div>
-      {div}
+      <div
+        className="absolute right-2.5 bottom-2.5 z-20"
+        ref={setMediaElement}
+      />
     </>
   );
 };
