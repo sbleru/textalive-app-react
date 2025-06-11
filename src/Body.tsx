@@ -43,7 +43,31 @@ export const Body = () => {
         console.log("host:", app.host);
         console.log("song url:", app.songUrl);
         if (!app.songUrl) {
-          p.createFromSongUrl("http://piapro.jp/t/C0lr/20180328201242");
+          // マジカルミライ 2025 対象楽曲
+
+          // ストリートライト by 加賀(ネギシャワーP)
+          // https://songle.jp/songs/piapro.jp%2Ft%2FULcJ%2F20250205120202
+          p.createFromSongUrl("https://piapro.jp/t/ULcJ/20250205120202");
+
+          // アリフレーション by 雨良 Amala
+          // https://songle.jp/songs/piapro.jp%2Ft%2FSuQO%2F20250127235813
+          // p.createFromSongUrl("https://piapro.jp/t/SuQO/20250127235813")
+
+          // インフォーマルダイブ by 99piano
+          // https://songle.jp/songs/piapro.jp%2Ft%2FPpc9%2F20241224135843
+          // p.createFromSongUrl("https://piapro.jp/t/Ppc9/20241224135843")
+
+          // ハロー、フェルミ。 by ど～ぱみん
+          // https://songle.jp/songs/piapro.jp%2Ft%2FoTaJ%2F20250204234235
+          // p.createFromSongUrl("https://piapro.jp/t/oTaJ/20250204234235")
+
+          // パレードレコード by きさら
+          // https://songle.jp/songs/piapro.jp%2Ft%2FGCgy%2F20250202202635
+          // p.createFromSongUrl("https://piapro.jp/t/GCgy/20250202202635")
+
+          // ロンリーラン by 海風太陽
+          // https://songle.jp/songs/piapro.jp%2Ft%2FCyPO%2F20250128183915
+          // p.createFromSongUrl("https://piapro.jp/t/CyPO/20250128183915")
         }
         setApp(app);
       },
