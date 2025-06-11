@@ -32,8 +32,7 @@ export const Body = () => {
     console.log("--- [app] create Player instance ---");
     const p = new Player({
       app: {
-        // トークンは https://developer.textalive.jp/profile で取得したものを使う
-        token: "elLljAkPmCHHiGDP",
+        token: import.meta.env.VITE_TEXTALIVE_TOKEN || "elLljAkPmCHHiGDP",
         parameters: [
           {
             title: "フォントの種類",
@@ -81,6 +80,7 @@ export const Body = () => {
         setApp(app);
       },
       onAppParameterUpdate: (name: string, value) => {
+        // FIXME: 機能してなさそう
         console.log(`[app] parameters.${name} update:`, value);
         if (name === "fontFamily") {
           setFontFamily(value);

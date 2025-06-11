@@ -18,6 +18,15 @@ TextAlive App API で開発された Web アプリケーションは、（特定
 
 [Node.js](https://nodejs.org/) をインストールしている環境で以下のコマンドを実行すると、開発用サーバが起動します。
 
+### 環境変数の設定
+
+TextAlive API を使用するためには、APIトークンが必要です。
+
+1. [TextAlive for Developers](https://developer.textalive.jp/profile) でAPIトークンを取得
+2. `.env` ファイル内の `VITE_TEXTALIVE_TOKEN` に取得したトークンを設定
+
+### サーバの起動
+
 ```sh
 npm install
 npm run dev
