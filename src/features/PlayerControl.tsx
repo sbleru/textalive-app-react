@@ -1,31 +1,23 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { Player, PlayerListener } from "textalive-app-api";
+import React, { useCallback, useState } from "react";
 import { PlayerSeekbar } from "textalive-react-api";
+
+import { usePlayer, usePlayerListener } from "./player";
 
 import { Button } from "@/components/ui/button";
 
 type PlayerControlProps = {
   disabled: boolean;
-  player: Player;
 };
 
-export const PlayerControl: React.FC<PlayerControlProps> = ({
-  disabled,
-  player,
-}) => {
+export const PlayerControl: React.FC<PlayerControlProps> = ({ disabled }) => {
+  const { player } = usePlayer();
   const [status, setStatus] = useState<"play" | "pause" | "stop">("stop");
 
-  useEffect(() => {
-    const listener: PlayerListener = {
-      onPlay: () => setStatus("play"),
-      onPause: () => setStatus("pause"),
-      onStop: () => setStatus("stop"),
-    };
-    player.addListener(listener);
-    return () => {
-      player.removeListener(listener);
-    };
-  }, [player]);
+  usePlayerListener(player, {
+    onPlay: () => setStatus("play"),
+    onPause: () => setStatus("pause"),
+    onStop: () => setStatus("stop"),
+  });
 
   const handlePlay = useCallback(
     () => player && player.requestPlay(),

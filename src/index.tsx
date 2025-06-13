@@ -1,10 +1,10 @@
 import { createRoot } from "react-dom/client";
 
-import { Body } from "./Body";
+import { App } from "./features/App";
 import "./index.css";
 
 const container = document.getElementById("container");
 if (container) {
   const root = createRoot(container);
-  root.render(<Body />);
+  root.render(<App />);
 }
