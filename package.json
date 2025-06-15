@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "React を使用し、TextAlive ホストがあればフォントや配色などを調整可能な TextAlive App API の作例",
+  "description": "React、Typescriptを使用した TextAlive App API の作例",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -17,17 +17,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TextAliveJp/textalive-app-params.git"
+    "url": "git+https://github.com/sbleru/textalive-app-react.git"
   },
   "keywords": [
     "textalive"
   ],
-  "author": "Jun Kato <jun.kato@aist.go.jp> (https://junkato.jp)",
+  "author": "maru (https://github.com/sbleru)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/TextAliveJp/textalive-app-params/issues"
+    "url": "https://github.com/sbleru/textalive-app-react/issues"
   },
-  "homepage": "https://github.com/TextAliveJp/textalive-app-params#readme",
+  "homepage": "https://github.com/sbleru/textalive-app-react#readme",
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
     "@tailwindcss/vite": "^4.1.8",

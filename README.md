@@ -1,10 +1,6 @@
 # TextAlive App API params example
 
-React を使った作例で、発声中の文字を表示します。TextAlive ホストと接続されていれば、フォントや配色などを調整可能です。
-
-デモページ: https://textalivejp.github.io/textalive-app-params/
-
-TextAlive ホストと接続された状態をテストするには [TextAlive App Debugger](https://developer.textalive.jp/app/run/?ta_app_url=https%3A%2F%2Ftextalivejp.github.io%2Ftextalive-app-params%2F&ta_song_url=http%3A%2F%2Fpiapro.jp%2Ft%2FC0lr%2F20180328201242) のページにアクセスしてください。
+React、Typescript を使った作例で、発声中の文字を表示します。
 
 ## 違う楽曲で試すには
 
@@ -34,8 +30,6 @@ npm run dev
 
 ## ビルド
 
-以下のコマンドで `docs` 以下にビルド済みファイルが生成されます。 [サンプルコードのデモページ](https://textalivejp.github.io/textalive-app-params/) は [GitHub Pages](https://pages.github.com/) で、このリポジトリの `docs` 以下のファイルが提供されています。
-
 ```sh
 npm run build
 ```
@@ -50,4 +44,6 @@ TextAlive App API について詳しくは Web サイト [TextAlive for Develope
 
 ---
 
-https://github.com/TextAliveJp/textalive-app-params
+## Credits
+
+This project is based on [TextAlive App API params example](https://github.com/TextAliveJp/textalive-app-params) by Jun Kato.
